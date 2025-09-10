@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>相片牆範例 — Masonry + PhotoSwipe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .grid {
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+
+        .grid-item {
+            width: 30%;
+            margin-bottom: 10px;
+            display: inline-block;
+            vertical-align: top;
+            box-sizing: border-box;
+            padding: 4px;
+        }
+
+        .grid-item img {
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+        }
+
+        @media (max-width:800px) {
+            .grid-item {
+                width: 48%;
+            }
+        }
+
+        @media (max-width:480px) {
+            .grid-item {
+                width: 100%;
+            }
+        }
+    </style>
+    <!-- Masonry (CDN) -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!-- imagesLoaded（確保圖片載入再排版） -->
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <!-- PhotoSwipe & UI (CDN) -->
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+    <script src="https://unpkg.com/photoswipe@5/dist/photoswipe.min.js"></script>
+    <script src="https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js" type="module"></script>
+</head>
+
+<body>
+
+    <h2>相片牆（Masonry）＋ 點擊開啟 PhotoSwipe</h2>
+
+    <div class="grid">
+        <!-- 範例圖片 (可替換為自己的) -->
+        <a href="./assets/img/gallery/KUM_2326.jpg" data-pswp-width="1000" data-pswp-height="1500" class="grid-item">
+            <img src="./assets/img/gallery/KUM_2326.jpg" alt="">
+        </a>
+        <a href="https://picsum.photos/1000/1500?random=2" data-pswp-width="1000" data-pswp-height="1500"
+            class="grid-item">
+            <img src="https://picsum.photos/400/600?random=2" alt="">
+        </a>
+        <a href="https://picsum.photos/1300/900?random=3" data-pswp-width="1300" data-pswp-height="900"
+            class="grid-item">
+            <img src="https://picsum.photos/400/280?random=3" alt="">
+        </a>
+        <!-- 可複製更多 <a> 圖片元素 -->
+    </div>
+
+    <script>
+        // 等圖片載入完再初始化 Masonry，避免跳動
+        const grid = document.querySelector('.grid');
+        imagesLoaded(grid, function () {
+            new Masonry(grid, {
+                itemSelector: '.grid-item',
+                gutter: 8,
+                percentPosition: true
+            });
+        });
+
+        // PhotoSwipe (ES module 版本) 初始化
+        (async () => {
+            // PhotoSwipe Lightbox 需要以 module 載入；為兼容性這裡用簡單判斷
+            try {
+                const { default: PhotoSwipeLightbox } = await import('https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.min.js');
+                const lightbox = new PhotoSwipeLightbox({
+                    gallery: '.grid',
+                    children: 'a',
+                    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.min.js')
+                });
+                lightbox.init();
+            } catch (e) {
+                // fallback: 如果瀏覽器不支援 module，請改用 PhotoSwipe v4 或其他 lightbox
+                console.warn('PhotoSwipe module init failed', e);
+            }
+        })();
+    </script>
+</body>
+
+</html>
