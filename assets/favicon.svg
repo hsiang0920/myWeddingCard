@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FFE372"/>
+      <stop offset="60%" stop-color="#FFC107"/>
+      <stop offset="100%" stop-color="#F5A501"/>
+    </radialGradient>
+    <radialGradient id="c" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFE372"/>
+      <stop offset="100%" stop-color="#FFC107"/>
+    </radialGradient>
+  </defs>
+  <!-- background transparent -->
+  <!-- five petals -->
+  <g stroke="#B38700" stroke-width="16" stroke-linejoin="round">
+    <circle cx="256" cy="118" r="92" fill="url(#g)"/>
+    <circle cx="394" cy="206" r="92" fill="url(#g)"/>
+    <circle cx="338" cy="366" r="92" fill="url(#g)"/>
+    <circle cx="174" cy="366" r="92" fill="url(#g)"/>
+    <circle cx="118" cy="206" r="92" fill="url(#g)"/>
+  </g>
+  <!-- center -->
+  <circle cx="256" cy="256" r="64" fill="url(#c)" stroke="#B38700" stroke-width="14"/>
+  <!-- plum pistils -->
+  <g fill="#B38700">
+    <circle cx="256" cy="190" r="8"/>
+    <circle cx="322" cy="222" r="8"/>
+    <circle cx="290" cy="288" r="8"/>
+    <circle cx="222" cy="288" r="8"/>
+    <circle cx="190" cy="222" r="8"/>
+  </g>
+</svg>
