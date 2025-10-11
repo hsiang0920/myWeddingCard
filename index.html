@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>電子喜帖 Wireframe</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <style>
         * {
             margin: 0;
@@ -562,7 +563,7 @@
 
 <body>
 
-<audio id="bgm" preload="auto" loop autoplay playsinline src="assets/music/LoveYou3000.mp3"></audio>
+<audio id="bgm" preload="auto" loop autoplay playsinline muted src="assets/music/LoveYou3000.mp3"></audio>
 
 <!--TODO 刪乾淨-->
 <!-- Navigation -->
@@ -818,38 +819,36 @@
         _fadeRAF = requestAnimationFrame(step);
     }
 
-    // ===== Try autoplay on load; gracefully fall back if blocked =====
+    // ===== Try autoplay on load (start muted for best compatibility), then unmute on first interaction =====
     (function attemptAutoplay() {
         if (!audio) return;
-        // 1) 嘗試直接播放（若瀏覽器允許）
-        audio.muted = false;
-        audio.volume = 0; // start from 0 for fade-in
-        audio.play()
-            .then(() => {
+        audio.muted = true;         // 必須一開始就靜音，行動瀏覽器才允許自動播放
+        audio.volume = 0;           // 準備淡入
+        audio.play().then(() => {
+            // 成功靜音自動播放
+            playing = true;
+            musicBtn && musicBtn.classList.add('playing');
+        }).catch(() => {
+            // 仍失敗就等互動再試
+        });
+
+        const unlock = () => {
+            if (!audio) return;
+            audio.muted = false;
+            audio.volume = 0;
+            audio.play().then(() => {
                 playing = true;
                 musicBtn && musicBtn.classList.add('playing');
                 startFadeIn(1, 2000);
-            })
-            .catch(() => {
-                // 2) 若被阻擋：先以靜音自動播放，等待首次互動後解除靜音
-                audio.muted = true;
-                audio.play().catch(() => {/* 即使靜音還是失敗就放著，等互動 */});
-                const unlock = () => {
-                    audio.muted = false;
-                    audio.volume = 0; // prepare fade after unlock
-                    audio.play().then(() => {
-                        playing = true;
-                        musicBtn && musicBtn.classList.add('playing');
-                        startFadeIn(1, 2000);
-                    }).catch(() => {/* 使用者可再手動點按按鈕 */});
-                    window.removeEventListener('click', unlock, { once: true });
-                    window.removeEventListener('touchstart', unlock, { once: true });
-                    window.removeEventListener('keydown', unlock, { once: true });
-                };
-                window.addEventListener('click', unlock, { once: true });
-                window.addEventListener('touchstart', unlock, { once: true });
-                window.addEventListener('keydown', unlock, { once: true });
-            });
+            }).catch(() => {/* 若仍失敗，使用者可再按按鈕 */});
+            window.removeEventListener('click', unlock, { once: true });
+            window.removeEventListener('touchstart', unlock, { once: true });
+            window.removeEventListener('keydown', unlock, { once: true });
+        };
+        // 等待第一次互動解除靜音
+        window.addEventListener('click', unlock, { once: true });
+        window.addEventListener('touchstart', unlock, { once: true });
+        window.addEventListener('keydown', unlock, { once: true });
     })();
 
     function toggleMusic() {
