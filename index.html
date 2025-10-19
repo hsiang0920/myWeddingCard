@@ -400,7 +400,7 @@
             background: #fff
         }
 
-        .fab {
+        .fab .playing {
             background: #2AA3A1FF;
             color: #fff
         }
@@ -417,7 +417,7 @@
 
 <body>
 
-<audio id="bgm" preload="auto" loop autoplay playsinline muted src="assets/music/LoveYou3000.mp3"></audio>
+<audio id="bgm" preload="auto" loop autoplay muted src="assets/music/LoveYou3000.mp3"></audio>
 
 
 <!-- 1. Hero Section -->
@@ -493,7 +493,7 @@
                         <p>花蓮遠雄悅來大飯店</p>
                         <a class="ghost button" href="https://maps.app.goo.gl/QyYDVhuK54MXkH5P7" target="_blank" rel="noopener">
                         </a>
-                        <a class="ghost button" href="http://maps.apple.com/?q=花蓮遠雄悅來大飯店" target="_blank" rel="noopener">
+                        <a class="ghost button" href="https://maps.apple.com/?q=花蓮遠雄悅來大飯店" target="_blank" rel="noopener">
                         </a>
                         <button class="map-button" id="googleMapButton">Google 地圖</button>
                         <button class="map-button" id="appleMapButton">Apple 地圖</button>
@@ -859,7 +859,7 @@
 <!-- Map Lightbox -->
 <div id="mapLightbox" aria-modal="true" role="dialog">
     <button id="mapLbClose" aria-label="關閉">✕</button>
-    <img id="mapLbImage" alt="飯店地圖大圖" />
+    <img id="mapLbImage" alt="飯店地圖大圖"/>
 </div>
 </body>
 </html>
