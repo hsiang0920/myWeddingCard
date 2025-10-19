@@ -78,19 +78,26 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #fce713 0%, #fbcfe8 100%);
+            background-image: url('assets/img/photo/2879.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .hero-content {
             text-align: center;
             max-width: 800px;
+            margin-top: 240px;
         }
 
         .hero-box {
-            border: 4px dashed #f9a8d4;
+            border: 4px dashed #000079;
             border-radius: 20px;
             padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.2);
+            /*backdrop-filter: blur(8px);*/
+            /*-webkit-backdrop-filter: blur(8px);*/
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             margin-bottom: 30px;
         }
 
@@ -102,33 +109,33 @@
 
         .hero h2 {
             font-size: 36px;
-            color: #4b5563;
+            color: #FFFFFF;
             margin-bottom: 20px;
         }
 
         .hero-date {
             font-size: 24px;
-            color: #6b7280;
+            color: #d7c412;
             margin-bottom: 10px;
         }
 
         .hero-location {
             font-size: 20px;
-            color: #6b7280;
+            color: #d7c412;
         }
 
         .scroll-indicator {
             animation: bounce 2s infinite;
         }
 
-        .scroll-arrow {
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 10px;
-            border-left: 3px solid #fb7185;
-            border-bottom: 3px solid #fb7185;
-            transform: rotate(-45deg);
-        }
+        /*.scroll-arrow {*/
+        /*    width: 40px;*/
+        /*    height: 40px;*/
+        /*    margin: 0 auto 10px;*/
+        /*    border-left: 3px solid #fb7185;*/
+        /*    border-bottom: 3px solid #fb7185;*/
+        /*    transform: rotate(-45deg);*/
+        /*}*/
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -600,6 +607,7 @@
             .countdown-number { font-size: 72px; }
             .info-grid { grid-template-columns: 1fr; }
             .legend { bottom: 10px; padding: 15px 20px; font-size: 12px; }
+            .hero { padding-top: 10vh; }
         }
     </style>
 </head>
@@ -629,9 +637,9 @@
             <div class="hero-date">2025.11.29</div>
             <div class="hero-location">花蓮遠雄悅來大飯店</div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
+<!--        <div class="scroll-indicator">-->
+<!--            <div class="scroll-arrow"></div>-->
+<!--        </div>-->
     </div>
 </section>
 
