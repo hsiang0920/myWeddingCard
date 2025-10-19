@@ -77,34 +77,10 @@
             color: #d7c412;
         }
 
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-
-        /*.scroll-arrow {*/
-        /*    width: 40px;*/
-        /*    height: 40px;*/
-        /*    margin: 0 auto 10px;*/
-        /*    border-left: 3px solid #fb7185;*/
-        /*    border-bottom: 3px solid #fb7185;*/
-        /*    transform: rotate(-45deg);*/
-        /*}*/
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-20px); }
             60% { transform: translateY(-10px); }
-        }
-
-        /* Story Section */
-        .story-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: #fef3f2;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
         }
 
         .story-header h2 {
@@ -117,56 +93,14 @@
             color: #999;
         }
 
-        .story-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .story-page:nth-child(2) {
-            background: linear-gradient(135deg, #dbeafe 0%, #e9d5ff 100%);
-        }
-
-        .story-page:nth-child(3) {
-            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-        }
-
-        .story-page:nth-child(4) {
-            background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
-        }
-
-        .story-box {
-            max-width: 700px;
-            border: 4px dashed rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 50px 40px;
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        .story-placeholder {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 20px;
-        }
-
-        .story-text {
-            font-size: 28px;
-            color: #4b5563;
-            line-height: 1.6;
-        }
-
         /* Merged Story+Photo alternating */
         .story-merged { background: #fff; padding: 80px 20px; }
-        .story-merged-header { text-align: center; margin-bottom: 40px; }
         .story-merged-header h2 { font-size: 36px; color: #fb7185; margin-bottom: 8px; }
         .story-merged-header p { color: #999; }
         .story-list { max-width: 1200px; margin: 0 auto; display: grid; gap: 40px; }
         .story-item { display: flex; align-items: center; gap: 40px; }
         .story-photo { flex: 1; }
         .story-copy { flex: 1; font-size: 24px; color: #4b5563; line-height: 1.8; }
-        .story-photo-placeholder { width: 100%; aspect-ratio: 4/3; border: 4px dashed #fecdd3; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #9ca3af; background: #fff1f2; }
         .story-item:nth-child(even) { flex-direction: row-reverse; }
         .story-subtitle {
           font-size: 20px;
@@ -343,7 +277,6 @@
             z-index: 2000;
             padding: 20px;
         }
-        #mapLightbox.open { display: flex; }
         #mapLbImage {
             max-width: 90vw;
             max-height: 80vh;
@@ -367,64 +300,10 @@
         }
         .map-preview img { cursor: pointer; }
 
-        /* Photo Story Section */
-        .photo-story-header {
-            text-align: center;
-            padding: 40px 20px;
-            background: #faf5ff;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
         .photo-story-header h2 {
             font-size: 36px;
             color: #a855f7;
             margin-bottom: 10px;
-        }
-
-        .photo-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .photo-page:nth-child(2) {
-            background: linear-gradient(135deg, #fecaca 0%, #fda4af 100%);
-        }
-
-        .photo-page:nth-child(3) {
-            background: linear-gradient(135deg, #c7d2fe 0%, #c4b5fd 100%);
-        }
-
-        .photo-page:nth-child(4) {
-            background: linear-gradient(135deg, #fde68a 0%, #fbbf24 100%);
-        }
-
-        .photo-box {
-            max-width: 900px;
-            border: 4px dashed white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .photo-placeholder {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .photo-text {
-            font-size: 32px;
-            color: white;
-            text-align: center;
-            line-height: 1.6;
-            font-weight: 500;
         }
 
         /* Countdown Section */
@@ -452,26 +331,6 @@
             font-size: 36px;
             color: #4b5563;
             margin-bottom: 40px;
-        }
-
-        .countdown-box {
-            border: 4px solid #f9a8d4;
-            border-radius: 30px;
-            padding: 60px 80px;
-            background: rgba(255, 255, 255, 0.8);
-            margin-bottom: 30px;
-        }
-
-        .countdown-number {
-            font-size: 96px;
-            font-weight: bold;
-            color: #fb7185;
-            margin-bottom: 20px;
-        }
-
-        .countdown-unit {
-            font-size: 32px;
-            color: #6b7280;
         }
 
         .countdown-message {
@@ -505,25 +364,6 @@
         @media (max-width: 768px) {
             .countdown-grid { grid-template-columns: repeat(2, 1fr); }
             .countdown-num { font-size: 48px; }
-        }
-
-        /* Legend */
-        .legend {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            z-index: 998;
-        }
-
-        .legend-title {
-            font-weight: 600;
-            color: #4b5563;
-            margin-bottom: 10px;
         }
 
         .legend ul {
@@ -560,7 +400,7 @@
             background: #fff
         }
 
-        .fab .playing {
+        .fab {
             background: #2AA3A1FF;
             color: #fff
         }
@@ -754,7 +594,7 @@
             柴米油鹽裡的笑聲，是我們最真實也最幸福的模樣。</p>
           </div>
           <div class="story-photo right">
-            <img src="./assets/img/photo/4150.jpg" alt="故事集範例4B" loading="lazy" />
+            <img src="./assets/img/photo/4150.jpeg" alt="故事集範例4B" loading="lazy" />
           </div>
         </article>
 
