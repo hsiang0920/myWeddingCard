@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電子喜帖 Wireframe</title>
+    <title>璟翔&#9829;妤庭 | 電子喜帖</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.svg" />
     <style>
         * {
@@ -227,7 +227,7 @@
           width: 100%;
           aspect-ratio: 4 / 3;
           object-fit: cover;
-          border: 4px dashed #fecdd3;
+          /*border: 4px dashed #fecdd3;*/
           border-radius: 16px;
           background: #fff1f2;
         }
@@ -242,7 +242,7 @@
           width: 100%;
           aspect-ratio: 4 / 3;
           object-fit: cover;
-          border: 4px dashed #fecdd3;
+          /*border: 4px dashed #fecdd3;*/
           border-radius: 16px;
           background: #fff1f2;
         }
@@ -255,6 +255,20 @@
         @media (max-width: 768px) {
           .story-item.triple { grid-template-columns: 1fr; }
           .story-item.triple .story-copy { order: -1; font-size: 18px; }
+        }
+        /* Alternating soft backgrounds for each story block */
+        .story-list .story-item {
+          padding: 24px;
+          border-radius: 16px;
+        }
+        .story-list .story-item:nth-child(odd) {
+          background: #eaf2ff; /* 淡藍 */
+        }
+        .story-list .story-item:nth-child(even) {
+          background: #fff9db; /* 淡黃 */
+        }
+        @media (max-width: 768px) {
+          .story-list .story-item { padding: 16px; }
         }
         @media (max-width: 768px) {
             .story-item { flex-direction: column; gap: 20px; }
@@ -616,17 +630,6 @@
 
 <audio id="bgm" preload="auto" loop autoplay playsinline muted src="assets/music/LoveYou3000.mp3"></audio>
 
-<!--TODO 刪乾淨-->
-<!-- Navigation -->
-<!--<div class="nav-dots">-->
-<!--    <div class="nav-dot active" onclick="scrollToSection(0)" title="封面區"></div>-->
-<!--    <div class="nav-dot" onclick="scrollToSection(1)" title="我們的故事"></div>-->
-<!--    <div class="nav-dot" onclick="scrollToSection(2)" title="婚禮資訊"></div>-->
-<!--    <div class="nav-dot" onclick="scrollToSection(3)" title="照片故事"></div>-->
-<!--    <div class="nav-dot" onclick="scrollToSection(4)" title="倒數計時"></div>-->
-<!--</div>-->
-
-<div class="section-label" id="sectionLabel">封面區</div>
 
 <!-- 1. Hero Section -->
 <section class="hero" id="section0">
@@ -802,7 +805,7 @@
             柴米油鹽裡的笑聲，是我們最真實也最幸福的模樣。</p>
           </div>
           <div class="story-photo right">
-            <img src="./assets/img/photo/2617.jpg" alt="故事集範例4B" loading="lazy" />
+            <img src="./assets/img/photo/4150.jpg" alt="故事集範例4B" loading="lazy" />
           </div>
         </article>
 
@@ -892,11 +895,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    const sections = document.querySelectorAll('section');
-    const navDots = document.querySelectorAll('.nav-dot');
-    const sectionLabel = document.getElementById('sectionLabel');
-    const sectionNames = ['封面區', '婚禮資訊', '故事集', '倒數計時'];
-
 
     // ===== Music toggle =====
     const audio = document.getElementById('bgm');
@@ -997,29 +995,6 @@
     //     sections[index].scrollIntoView({ behavior: 'smooth' });
     // }
 
-
-    function updateActiveSection() {
-        let current = 0;
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 150 && rect.bottom >= 150) {
-                current = index;
-            }
-        });
-
-        navDots.forEach((dot, index) => {
-            if (index === current) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-
-        sectionLabel.textContent = sectionNames[current];
-    }
-
-    window.addEventListener('scroll', updateActiveSection);
-    updateActiveSection();
 
     $('#googleMapButton').on('click', function () {
         window.open('https://maps.app.goo.gl/QyYDVhuK54MXkH5P7', '_blank', 'noopener');
