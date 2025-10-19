@@ -277,6 +277,7 @@
             z-index: 2000;
             padding: 20px;
         }
+        #mapLightbox.open { display: flex; }
         #mapLbImage {
             max-width: 90vw;
             max-height: 80vh;
@@ -366,17 +367,6 @@
             .countdown-num { font-size: 48px; }
         }
 
-        .legend ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .legend li {
-            color: #6b7280;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-
         /* floating ui */
         .fab {
             position: fixed;
@@ -417,7 +407,7 @@
 
 <body>
 
-<audio id="bgm" preload="auto" loop autoplay muted src="assets/music/LoveYou3000.mp3"></audio>
+<audio id="bgm" preload="auto" loop autoplay playsinline muted src="assets/music/LoveYou3000.mp3"></audio>
 
 
 <!-- 1. Hero Section -->
@@ -653,18 +643,6 @@
         <div class="countdown-message">期待與您相見</div>
     </div>
 </section>
-
-<!--TODO 刪乾淨-->
-<!-- Legend -->
-<!--<div class="legend">-->
-<!--    <div class="legend-title">Wireframe 說明：</div>-->
-<!--    <ul>-->
-<!--        <li>• 虛線框 = 圖片區域</li>-->
-<!--        <li>• 漸層色 = 背景示意</li>-->
-<!--        <li>• 每個區塊 = 全螢幕高度</li>-->
-<!--        <li>• 左側圓點 = 導航指示</li>-->
-<!--    </ul>-->
-<!--</div>-->
 
 <div class="fab">
     <button id="musicBtn" aria-label="播放音樂" title="音樂">
