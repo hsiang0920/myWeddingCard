@@ -208,6 +208,22 @@
         .story-copy { flex: 1; font-size: 24px; color: #4b5563; line-height: 1.8; }
         .story-photo-placeholder { width: 100%; aspect-ratio: 4/3; border: 4px dashed #fecdd3; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #9ca3af; background: #fff1f2; }
         .story-item:nth-child(even) { flex-direction: row-reverse; }
+        .story-subtitle {
+          font-size: 20px;
+          color: #fb7185;
+          font-weight: 700;
+          letter-spacing: 0.02em;
+          margin: 0 0 8px;
+        }
+        .story-photo img.story-photo-img {
+          display: block;
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          border: 4px dashed #fecdd3;
+          border-radius: 16px;
+          background: #fff1f2;
+        }
         @media (max-width: 768px) {
             .story-item { flex-direction: column; gap: 20px; }
             .story-item:nth-child(even) { flex-direction: column; }
@@ -228,7 +244,9 @@
             text-align: center;
             font-size: 40px;
             color: #fb7185;
-            margin-bottom: 60px;
+            margin: 0 0 60px; /* ensure no unexpected top margin */
+            line-height: 1.2;
+            letter-spacing: 0.02em;
         }
 
         .info-grid {
@@ -694,39 +712,80 @@
 </section>
 
 <!-- 2. 故事集（合併） -->
-<section class="story-merged" id="section2" style="display: block; padding: 0; min-height: auto;">
-    <div class="story-merged-header">
-        <h2>故事集</h2>
-        <p>Story × Photo</p>
-    </div>
+<section class="story-merged" id="section2" style="padding: 40px 20px; min-height: auto;">
+    <div class="info-container">
+<!--    <div class="story-merged-header">-->
+<!--        <h2>故事集</h2>-->
+        <h2 class="info-title">故事集</h2>
+<!--    </div>-->
 
     <div class="story-list">
         <article class="story-item">
             <div class="story-photo">
-                <div class="story-photo-placeholder">[照片 1：第一次見面]</div>
+                <img class="story-photo-img" src="./assets/img/story01.jpg" alt="故事集範例1" loading="lazy" />
             </div>
             <div class="story-copy">
-                「從第一次見面開始，<br>我們的故事就悄悄展開。」
+                <h3 class="story-subtitle">相遇的開始</h3>
+                <p>那天的相遇成為命運安排的開端。<br>
+                一聲詢問，我們看見了彼此，也看見了未來的方向。</p>
             </div>
         </article>
 
         <article class="story-item">
             <div class="story-photo">
-                <div class="story-photo-placeholder">[照片 2：日常生活]</div>
+                <img class="story-photo-img" src="./assets/img/story02.jpg" alt="故事集範例2" loading="lazy" />
             </div>
             <div class="story-copy">
-                「一起走過許多日常，<br>也走向了未來。」
+                <h3 class="story-subtitle">心動的瞬間</h3>
+                <p>從一句話、一次笑容開始，心就悄悄有了歸屬。<br>
+                那份心動不張揚，卻在每次對望時，都藏著說不完的溫柔。</p>
             </div>
         </article>
 
         <article class="story-item">
             <div class="story-photo">
-                <div class="story-photo-placeholder">[照片 3：求婚時刻]</div>
+                <img class="story-photo-img" src="./assets/img/story03.jpg" alt="故事集範例3" loading="lazy" />
             </div>
             <div class="story-copy">
-                「我們選擇攜手走一輩子，<br>也想邀你見證。」
+                <h3 class="story-subtitle">靠近的日子</h3>
+                <p>我們一起走過無數平凡的時刻，分享喜悅，也彼此陪伴著成長。<br>
+                從陌生到熟悉，每個日子都讓我們更靠近，更確定這份情感。</p>
             </div>
         </article>
+
+        <article class="story-item">
+            <div class="story-photo">
+                <img class="story-photo-img" src="./assets/img/story04.jpg" alt="故事集範例4" loading="lazy" />
+            </div>
+            <div class="story-copy">
+                <h3 class="story-subtitle">我們的日常</h3>
+                <p>生活不總是浪漫，卻因為有你而變得特別。<br>
+                柴米油鹽裡的笑聲，是我們最真實也最幸福的模樣。</p>
+            </div>
+        </article>
+
+        <article class="story-item">
+            <div class="story-photo">
+                <img class="story-photo-img" src="./assets/img/story05.jpg" alt="故事集範例5" loading="lazy" />
+            </div>
+            <div class="story-copy">
+                <h3 class="story-subtitle">約定的此刻</h3>
+                <p>在無數次的相視微笑後，我們都明白了答案。<br>
+                這一刻的約定，不只是承諾，更是兩顆心願意一起走下去的決定。</p>
+            </div>
+        </article>
+
+        <article class="story-item">
+            <div class="story-photo">
+                <img class="story-photo-img" src="./assets/img/story06.jpg" alt="故事集範例6" loading="lazy" />
+            </div>
+            <div class="story-copy">
+                <h3 class="story-subtitle">幸福的永遠</h3>
+                <p>故事還在繼續，而我們的未來，從此有了名字。<br>
+                餘生的每一天，都有彼此的身影與笑聲，細水長流、溫柔以待。</p>
+            </div>
+        </article>
+    </div>
     </div>
 </section>
 
